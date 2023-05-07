@@ -4,9 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         ElementoMultimediale[] array = new ElementoMultimediale[5];
-
-      
-        for (int i = 0; i < array.length; i++) {
+        Immagine img = new Immagine("Immagine 1", 3);
+        array[0] = img;
+        Video video = new Video("Video 1", 10, 5, 0);
+        array[1] = video;
+       Audio audio = new Audio("Audio 1", 15, 7);
+        array[2] = audio;
+        for (int i = 3; i < array.length; i++) {
             System.out.println("Inserisci il tipo di oggetto (1 = Audio, 2 = Video, 3 = Immagine):");
             int tipo = input.nextInt();
             input.nextLine();
@@ -20,11 +24,10 @@ public class Main {
 
             if (tipo == 1) {
                 System.out.println("Inserisci il volume:");
-                int volume = input.nextInt();
                 input.nextLine();
 
-                Audio audio = new Audio(titolo, durata, volume);
-                array[i] = audio;
+                Audio audio1 = new Audio("Audio 1", 15, 7);
+                array[i] = audio1;
             } else if (tipo == 2) {
                 System.out.println("Inserisci il volume:");
                 int volume = input.nextInt();
@@ -34,8 +37,8 @@ public class Main {
                 int luminosita = input.nextInt();
                 input.nextLine();
 
-                Video video = new Video(titolo, durata, volume, luminosita);
-                array[i] = video;
+                Video video1 = new Video(titolo, durata, volume, luminosita);
+                array[i] = video1;
             } else if (tipo == 3) {
                 System.out.println("Inserisci la luminosità:");
                 int luminosita = input.nextInt();
@@ -57,11 +60,11 @@ public class Main {
             if (scelta >= 1 && scelta <= 5) {
                 ElementoMultimediale oggetto = array[scelta - 1];
                 if (oggetto instanceof Audio) {
-                    Audio audio = (Audio) oggetto;
-                    audio.play();
+                    Audio audio1 = (Audio) oggetto;
+                    audio1.play();
                 } else if (oggetto instanceof Video) {
-                    Video video = (Video) oggetto;
-                    video.play();
+                    Video video1 = (Video) oggetto;
+                    video1.play();
                 } else if (oggetto instanceof Immagine) {
                     Immagine immagine = (Immagine) oggetto;
                     immagine.show();
